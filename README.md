@@ -3,7 +3,7 @@
 - Spring Boot를 이용하여 JWT 인증/인가 로직과 API 구현
 - Junit 기반 테스트 코드 작성
 - Swagger를 활용한 API 문서화
-- AWS EC2 배포(보류)
+- AWS EC2 배포(미진행)
 
 
 ###  Swagger UI & API 명세서
@@ -39,7 +39,11 @@
   {
     "username": "tester",
     "nickname": "nickname",
-    "roles": { "role": "USER" }
+    "roles": [
+      {
+        "role": "USER"
+      }
+    ]
   }
   ```
 - 에러 응답
@@ -73,7 +77,7 @@
 - 응답 예시(성공)
   ```json
   {
-    "token": "---"
+    "token": "eKDIkdfjoakIdkfjpekdkcjdkoIOdjOKJDFOlLDKFJKL"
   }
   ```
 - 응답
@@ -98,7 +102,7 @@
 - 설명: 권한을 **ADMIN** 으로 변경합니다.
 - 요청 헤더
   ```http
-  Authorization: Bearer {JWT_TOKEN}
+  Authorization: Bearer {accessToken}
   Content-Type: application/json
   ```
 - 요청 예시
@@ -110,7 +114,11 @@
   {
     "username": "tester2",
     "nickname": "nickname2",
-    "roles": { "role": "ADMIN" }
+    "roles": [
+      {
+        "role": "ADMIN"
+      }
+    ]
   }
   ```
 - 에러 응답
